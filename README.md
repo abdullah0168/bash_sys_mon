@@ -1,14 +1,13 @@
 # bash_sys_mon
 
-Before startingconfiguration please make sure epel-release is updated
+				**************************Before starting configuration please make sure epel-release is updated**************************
 also configure msmtp or ssmtp on regarding your email address.
 
 
 yum install epel-release
 
 
-
-#For ssmtp configuration in mail follow this process
+					#For ssmtp configuration in mail follow this process
 
 1. install msmtp
 	 yum install msmtp
@@ -17,7 +16,6 @@ yum install epel-release
 
 	nano ~/ .msmtprc
 3. Configaration: 
-
 
 	defaults
 	auth           on
@@ -39,7 +37,7 @@ yum install epel-release
 
 5. Configure in script:
 
-	# Function to log and email alerts
+ Function to log and email alerts
 	log_and_alert() {
     		local message="$1"
     		echo "$message" >> "$LOG_FILE"
@@ -47,16 +45,15 @@ yum install epel-release
 }
 
 
-#For configureing ssmtp
+						#For configureing ssmtp follow this process
 
 1. installing ssmtp 
 	yum install ssmtp
 
 2. COnfigure file location
-
 	/etc/ssmtp/ssmtp.conf
-3. Configuration:
 
+4. Configuration:
 	root=your_email@gmail.com
 	mailhub=smtp.gmail.com:587
 	AuthUser=your_email@gmail.com
@@ -64,18 +61,16 @@ yum install epel-release
 	UseTLS=YES
 	UseSTARTTLS=YES
 
-4. update revaliases in ssmtp config filder
-
+5. update revaliases in ssmtp config filder
 	local_user:your_gmail_addess@gmail.com:smtp.gmail.com:587
 
 
 
+6. Modification in script
 
-5. Modification in script
-
-# Function to log and email alerts
-log_and_alert() {
-    local message="$1"
-    echo "$message" >> "$LOG_FILE"
-    echo -e "Subject: System Health Alert\n\n$message" | ssmtp "$EMAIL"
-}
+Function to log and email alerts
+	log_and_alert() {
+	    local message="$1"
+	    echo "$message" >> "$LOG_FILE"
+	    echo -e "Subject: System Health Alert\n\n$message" | ssmtp "$EMAIL"
+	}
