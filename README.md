@@ -1,5 +1,4 @@
 # bash_sys_mon
-This bash script can be used to automate system monitoring. This script will send mail to its desired user once system cpu,memory or disk crossess threshold.
 
 Before startingconfiguration please make sure epel-release is updated
 also configure msmtp or ssmtp on regarding your email address.
