@@ -1,6 +1,6 @@
 # bash_sys_mon
 
-				**************************Before starting configuration please make sure epel-release is updated**************************
+		**************************Before starting configuration please make sure epel-release is updated**************************
 also configure msmtp or ssmtp on regarding your email address.
 
 
@@ -10,10 +10,9 @@ yum install epel-release
 					#For ssmtp configuration in mail follow this process
 
 1. install msmtp
-	 yum install msmtp
+	yum install msmtp
 
 2. configure msmtp:
-
 	nano ~/ .msmtprc
 3. Configaration: 
 
